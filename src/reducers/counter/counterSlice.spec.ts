@@ -11,7 +11,11 @@ describe('counter reducer', () => {
     status: 'idle',
   };
   it('should handle initial state', () => {
-    expect(counterReducer(undefined, { type: 'unknown' })).toEqual({
+    expect(
+      counterReducer(undefined, {
+        type: 'unknown',
+      })
+    ).toEqual({
       value: 0,
       status: 'idle',
     });
