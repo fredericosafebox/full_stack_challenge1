@@ -1,5 +1,4 @@
 $form_color: #f8f9fa;
-$board_color: rgba(202, 240, 248, 0.2);
 $calculator_border: rgba(2, 62, 138, 0.3);
 $outline_color: rgba(2, 62, 138, 0.9);
 $label: rgba(0, 18, 25, 0.8);
@@ -63,14 +62,5 @@ $installments: rgba(0, 18, 25, 0.3);
         margin-top: -0.3rem;
       }
     }
-  }
-
-  .app__calculator--board {
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $board_color;
-    flex: 2.3;
   }
 }
