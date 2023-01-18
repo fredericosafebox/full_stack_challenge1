@@ -1,4 +1,10 @@
+/* eslint-disable import/no-unresolved */
+import { useAppSelector } from '../../app/hooks';
+
 function Board() {
+  const { tomorrow, twoWeeks, oneMonth, threeMonths } = useAppSelector(
+    (state) => state.form
+  );
   return (
     <div className="app__calculator--board">
       <div className="board__title--wrapper">
@@ -7,16 +13,16 @@ function Board() {
       <div className="board__list--wrapper">
         <ul>
           <li>
-            Amanhã: <span>R$ 0,00</span>
+            Amanhã: <span>R$ {tomorrow}</span>
           </li>
           <li>
-            Em 15 dias: <span>R$ 0,00</span>
+            Em 15 dias: <span>R$ {twoWeeks}</span>
           </li>
           <li>
-            Em 30 dias: <span>R$ 0,00</span>
+            Em 30 dias: <span>R$ {oneMonth}</span>
           </li>
           <li>
-            Em 90 dias: <span>R$ 0,00</span>
+            Em 90 dias: <span>R$ {threeMonths}</span>
           </li>
         </ul>
       </div>

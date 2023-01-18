@@ -4,11 +4,13 @@ import {
   type ThunkAction,
   type Action,
 } from '@reduxjs/toolkit';
+import formReducer from '../reducers/form/formSlice';
 import counterReducer from '../reducers/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    form: formReducer,
   },
 });
 
