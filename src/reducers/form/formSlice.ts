@@ -12,8 +12,8 @@ export interface FormState {
 }
 
 const initialState: FormState = {
-  amount: 0,
-  installments: 0,
+  amount: 1000,
+  installments: 1,
   mdr: 0,
   tomorrow: 0,
   twoWeeks: 0,
