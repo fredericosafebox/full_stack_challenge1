@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved */
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { IErrors } from '../../interfaces/IErrors';
 
 export interface FormState {
   amount?: number;
@@ -9,6 +11,11 @@ export interface FormState {
   twoWeeks: number;
   oneMonth: number;
   threeMonths: number;
+  errors?: {
+    [amount: string]: IErrors[];
+    installments: IErrors[];
+    mdr: IErrors[];
+  };
 }
 
 const initialState: FormState = {
@@ -19,6 +26,11 @@ const initialState: FormState = {
   twoWeeks: 0,
   oneMonth: 0,
   threeMonths: 0,
+  errors: {
+    amount: [],
+    installments: [],
+    mdr: [],
+  },
 };
 
 export const formSlice = createSlice({
@@ -40,10 +52,23 @@ export const formSlice = createSlice({
       state.oneMonth = action.payload.oneMonth;
       state.threeMonths = action.payload.threeMonths;
     },
+    updateErrors: (state: FormState, action: PayloadAction<any>) => {
+      const { type: key } = action.payload;
+      state.errors![key] = [action.payload];
+    },
+    resetErrors: (state: FormState) => {
+      state.errors = { amount: [], installments: [], mdr: [] };
+    },
   },
 });
 
-export const { updateAmount, updateInstallments, updateMdr, updateResult } =
-  formSlice.actions;
+export const {
+  updateAmount,
+  updateInstallments,
+  updateMdr,
+  updateResult,
+  updateErrors,
+  resetErrors,
+} = formSlice.actions;
 
 export default formSlice.reducer;

@@ -3,7 +3,7 @@ $calculator_border: rgba(2, 62, 138, 0.3);
 $outline_color: rgba(2, 62, 138, 0.9);
 $label: rgba(0, 18, 25, 0.8);
 $title: rgb(0, 18, 25);
-$installments: rgba(0, 18, 25, 0.3);
+$installments: rgba(0, 18, 25, 0.4);
 
 .app__calculator {
   width: 90%;
@@ -35,8 +35,14 @@ $installments: rgba(0, 18, 25, 0.3);
       gap: 0.4rem;
 
       label {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         color: $label;
+
+        .after {
+          font-size: 0.7rem;
+          color: $installments;
+          font-weight: 600;
+        }
       }
 
       input {
@@ -50,16 +56,6 @@ $installments: rgba(0, 18, 25, 0.3);
         &:focus {
           box-shadow: 0 0 2px 1px $outline_color;
         }
-      }
-    }
-
-    .installments__wrapper {
-      &::after {
-        content: 'Máximo de 12 parcelas';
-        font-size: 0.6rem;
-        color: $installments;
-        font-weight: 600;
-        margin-top: -0.3rem;
       }
     }
   }

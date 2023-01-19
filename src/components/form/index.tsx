@@ -6,22 +6,27 @@ import {
   updateInstallments,
   updateMdr,
   updateResult,
+  updateErrors,
+  resetErrors,
 } from '../../reducers/form/formSlice';
 import schema from '../../schemas/requestSchema';
 import { api } from '../../services/api';
+import { ValidationError } from 'yup';
 
 function Form() {
   const dispatch = useAppDispatch();
-  const { amount, installments, mdr } = useAppSelector((state) => state.form);
+  const { amount, installments, mdr, errors } = useAppSelector(
+    (state) => state.form
+  );
 
   const validateState = async () => {
     try {
+      dispatch(resetErrors());
       const data = schema.validateSync({
         amount,
         installments,
         mdr,
       });
-      console.log(data);
       const res = await api.post('/', data).then((res) => res.data);
       dispatch(
         updateResult({
@@ -32,7 +37,9 @@ function Form() {
         })
       );
     } catch (error) {
-      console.log(error);
+      if (error instanceof ValidationError) {
+        dispatch(updateErrors(error.message));
+      }
     }
   };
 
@@ -58,7 +65,7 @@ function Form() {
   return (
     <div className="app__calculator--form">
       <h1>Simule sua Antecipação</h1>
-      <div>
+      <div className="input__wrapper">
         <label htmlFor="amount">Informe o valor da venda *</label>
         <input
           type="text"
@@ -67,10 +74,15 @@ function Form() {
           onChange={handleAmount}
           onBlur={validateState}
         />
+        {errors?.amount.length != 0 && (
+          <span className="error">{errors?.amount[0].msg}</span>
+        )}
       </div>
 
-      <div className="installments__wrapper">
-        <label htmlFor="installments">Em quantas parcelas *</label>
+      <div className="input__wrapper">
+        <label htmlFor="installments">
+          Em quantas parcelas * <span className="after">(max.: 12)</span>
+        </label>
         <input
           type="text"
           id="installments"
@@ -78,9 +90,12 @@ function Form() {
           onBlur={validateState}
           onChange={handleInstallments}
         />
+        {errors?.installments.length != 0 && (
+          <span className="error">{errors?.installments[0].msg}</span>
+        )}
       </div>
 
-      <div>
+      <div className="input__wrapper">
         <label htmlFor="mdr">Informe o percentual de MDR *</label>
         <input
           type="text"
@@ -89,6 +104,9 @@ function Form() {
           onBlur={validateState}
           onChange={handleMdr}
         />
+        {errors?.mdr.length != 0 && (
+          <span className="error">{errors?.mdr[0].msg}</span>
+        )}
       </div>
     </div>
   );
