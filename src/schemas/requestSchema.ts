@@ -28,6 +28,18 @@ const requestSchema = yup.object({
     .min(0, { type: 'mdr', msg: 'Mdr must be a positive number.' })
     .max(100, { type: 'mdr', msg: 'Mdr cannot be greater than 100' })
     .required({ type: 'mdr', msg: "Missing 'mdr' property." }),
+  days: yup.array().of(
+    yup
+      .number()
+      .integer({
+        type: 'days',
+        msg: 'A day must be a round number.',
+      })
+      .min(0, {
+        type: 'days',
+        msg: 'Minimum number for a day is 0.',
+      })
+  ),
 });
 
 export default requestSchema;

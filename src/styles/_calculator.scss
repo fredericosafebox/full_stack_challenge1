@@ -4,6 +4,10 @@ $outline_color: rgba(2, 62, 138, 0.9);
 $label: rgba(0, 18, 25, 0.8);
 $title: rgb(0, 18, 25);
 $installments: rgba(0, 18, 25, 0.4);
+$reset: #adb5bd;
+$submit: #4361ee;
+$hoverReset: rgba(0, 18, 25, 0.5);
+$mainHover: rgba(67, 97, 238, 0.9);
 
 .app__calculator {
   width: 90%;
@@ -29,7 +33,7 @@ $installments: rgba(0, 18, 25, 0.4);
       color: $title;
     }
 
-    div {
+    .input__wrapper {
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
@@ -55,6 +59,50 @@ $installments: rgba(0, 18, 25, 0.4);
 
         &:focus {
           box-shadow: 0 0 2px 1px $outline_color;
+        }
+      }
+    }
+
+    .button__wrapper {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      width: 100%;
+
+      .calendar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        width: fit-content;
+        background: none;
+        cursor: pointer;
+      }
+      .button__reset {
+        background: $reset;
+        padding: 0.5rem 1rem;
+        color: $form_color;
+        font-weight: 600;
+        border-radius: 0.2rem;
+        transition: 0.5s;
+        font-size: 0.8rem;
+        &:hover {
+          background: $hoverReset;
+        }
+        cursor: pointer;
+      }
+      .button__calculate {
+        background: $submit;
+        padding: 0.5rem 2rem;
+        color: $form_color;
+        font-weight: 600;
+        border-radius: 0.2rem;
+        cursor: pointer;
+        transition: 0.5s;
+        font-size: 0.8rem;
+
+        &:hover {
+          background: $mainHover;
         }
       }
     }

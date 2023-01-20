@@ -5,44 +5,20 @@ import {
   updateAmount,
   updateInstallments,
   updateMdr,
-  updateResult,
-  updateErrors,
-  resetErrors,
+  resetState,
 } from '../../reducers/form/formSlice';
-import schema from '../../schemas/requestSchema';
-import { api } from '../../services/api';
-import { ValidationError } from 'yup';
+import { FcCalendar } from 'react-icons/fc';
+import { openModal } from '../../reducers/modal/modalSlice';
 
-function Form() {
+export interface IPropsForm {
+  validateState: () => void;
+}
+
+function Form({ validateState }: IPropsForm) {
   const dispatch = useAppDispatch();
   const { amount, installments, mdr, errors } = useAppSelector(
     (state) => state.form
   );
-
-  const validateState = async () => {
-    try {
-      dispatch(resetErrors());
-      const data = schema.validateSync({
-        amount,
-        installments,
-        mdr,
-      });
-      const res = await api.post('/', data).then((res) => res.data);
-      dispatch(
-        updateResult({
-          tomorrow: res['1'],
-          twoWeeks: res['15'],
-          oneMonth: res['30'],
-          threeMonths: res['90'],
-        })
-      );
-    } catch (error) {
-      if (error instanceof ValidationError) {
-        dispatch(updateErrors(error.message));
-      }
-    }
-  };
-
   const handleAmount = (n: ChangeEvent<HTMLInputElement>) => {
     const value = Number(n.currentTarget.value);
     if (!isNaN(value)) {
@@ -107,6 +83,21 @@ function Form() {
         {errors?.mdr.length != 0 && (
           <span className="error">{errors?.mdr[0].msg}</span>
         )}
+      </div>
+
+      <div className="button__wrapper">
+        <button className="calendar" onClick={() => dispatch(openModal())}>
+          <FcCalendar size={38} />
+        </button>
+        <button
+          className="button__reset"
+          onClick={() => dispatch(resetState())}
+        >
+          Reset
+        </button>
+        <button className="button__calculate" onClick={validateState}>
+          Calcular
+        </button>
       </div>
     </div>
   );

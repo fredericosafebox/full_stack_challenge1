@@ -1,0 +1,133 @@
+$wrapper: rgba(0, 0, 0, 0.5);
+$form_color: #f8f9fa;
+$header: #4361ee;
+$outline_color: rgba(2, 62, 138, 0.9);
+$warning: rgba(0, 18, 25, 0.5);
+$label: rgba(0, 18, 25, 0.8);
+$cancel: #adb5bd;
+$hoverReset: rgba(0, 18, 25, 0.5);
+$mainHover: rgba(67, 97, 238, 0.9);
+$submit: #4361ee;
+
+.modal__wrapper {
+  background: $wrapper;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal__calendar {
+    background: $form_color;
+    width: 100%;
+    height: 100%;
+    max-width: 20rem;
+    max-height: 15rem;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .modal__calendar--header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.3rem 1rem;
+      background: $header;
+      color: $form_color;
+
+      h3 {
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      button {
+        display: flex;
+        background: none;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .icon {
+          color: $form_color;
+        }
+      }
+    }
+
+    .modal__calendar--body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0.7rem 1rem;
+      width: 100%;
+      flex: 1;
+
+      .after {
+        font-size: 0.7rem;
+        color: $warning;
+        font-weight: 500;
+        margin-top: -5px;
+      }
+
+      label {
+        font-size: 0.8rem;
+        color: $label;
+      }
+
+      textarea {
+        width: 100%;
+        max-width: 15rem;
+        font-size: 0.7rem;
+        padding: 0.5rem;
+        height: 6.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: 0.6s;
+        border-radius: 0.1rem;
+        resize: none;
+
+        &:focus {
+          box-shadow: 0 0 2px 1px $outline_color;
+        }
+      }
+
+      .button__wrapper {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        width: 100%;
+
+        .button__reset {
+          background: $cancel;
+          padding: 0.4rem 1rem;
+          color: $form_color;
+          font-weight: 600;
+          border-radius: 0.2rem;
+          transition: 0.5s;
+          font-size: 0.8rem;
+          &:hover {
+            background: $hoverReset;
+          }
+          cursor: pointer;
+        }
+        .button__calculate {
+          background: $submit;
+          padding: 0.4rem 2rem;
+          color: $form_color;
+          font-weight: 600;
+          border-radius: 0.2rem;
+          cursor: pointer;
+          transition: 0.5s;
+          font-size: 0.8rem;
+
+          &:hover {
+            background: $mainHover;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,11 +2,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { IErrors } from '../../interfaces/IErrors';
+import IDay from '../../interfaces/IDay';
 
 export interface FormState {
   amount?: number;
   installments?: number;
   mdr?: number;
+  days?: IDay[];
+  daysString?: string;
   tomorrow: number;
   twoWeeks: number;
   oneMonth: number;
@@ -22,6 +25,8 @@ const initialState: FormState = {
   amount: 1000,
   installments: 1,
   mdr: 0,
+  days: [],
+  daysString: '',
   tomorrow: 0,
   twoWeeks: 0,
   oneMonth: 0,
@@ -56,8 +61,25 @@ export const formSlice = createSlice({
       const { type: key } = action.payload;
       state.errors![key] = [action.payload];
     },
+    updateDays: (state: FormState, action: PayloadAction<IDay[]>) => {
+      state.days = action.payload;
+    },
+    setDayString: (state: FormState, action: PayloadAction<string>) => {
+      state.daysString = action.payload;
+    },
     resetErrors: (state: FormState) => {
       state.errors = { amount: [], installments: [], mdr: [] };
+    },
+    resetState: (state: FormState) => {
+      (state.amount = 1000), (state.installments = 1);
+      state.mdr = 0;
+      state.days = [];
+      state.tomorrow = 0;
+      state.twoWeeks = 0;
+      state.oneMonth = 0;
+      state.threeMonths = 0;
+      state.errors = { amount: [], installments: [], mdr: [] };
+      state.daysString = '';
     },
   },
 });
@@ -69,6 +91,9 @@ export const {
   updateResult,
   updateErrors,
   resetErrors,
+  resetState,
+  updateDays,
+  setDayString,
 } = formSlice.actions;
 
 export default formSlice.reducer;

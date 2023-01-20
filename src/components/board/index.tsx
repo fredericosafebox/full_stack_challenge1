@@ -2,7 +2,7 @@
 import { useAppSelector } from '../../app/hooks';
 
 function Board() {
-  const { tomorrow, twoWeeks, oneMonth, threeMonths } = useAppSelector(
+  const { tomorrow, twoWeeks, oneMonth, threeMonths, days } = useAppSelector(
     (state) => state.form
   );
   return (
@@ -11,20 +11,34 @@ function Board() {
         <h2>VOCÊ RECEBERÁ:</h2>
       </div>
       <div className="board__list--wrapper">
-        <ul>
-          <li>
-            Amanhã: <span>R$ {tomorrow}</span>
-          </li>
-          <li>
-            Em 15 dias: <span>R$ {twoWeeks}</span>
-          </li>
-          <li>
-            Em 30 dias: <span>R$ {oneMonth}</span>
-          </li>
-          <li>
-            Em 90 dias: <span>R$ {threeMonths}</span>
-          </li>
-        </ul>
+        {days!.length === 0 && (
+          <ul>
+            <li>
+              Amanhã: <span>R$ {tomorrow}</span>
+            </li>
+            <li>
+              Em 15 dias: <span>R$ {twoWeeks}</span>
+            </li>
+            <li>
+              Em 30 dias: <span>R$ {oneMonth}</span>
+            </li>
+            <li>
+              Em 90 dias: <span>R$ {threeMonths}</span>
+            </li>
+          </ul>
+        )}
+        {days!.length > 0 && (
+          <ul>
+            {Object.keys(days![0]).map((key: string, index) => {
+              const value = days![0][key];
+              return (
+                <li key={index}>
+                  Em {key} dias: <span>R$ {value},00</span>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </div>
   );
