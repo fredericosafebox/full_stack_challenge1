@@ -5,12 +5,10 @@ import {
   type Action,
 } from '@reduxjs/toolkit';
 import form from '../reducers/form/formSlice';
-import counter from '../reducers/counter/counterSlice';
 import modal from '../reducers/modal/modalSlice';
 
 export const store = configureStore({
   reducer: {
-    counter,
     form,
     modal,
   },

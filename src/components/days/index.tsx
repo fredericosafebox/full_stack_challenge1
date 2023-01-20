@@ -44,7 +44,7 @@ function Days({ validateState }: IPropsForm) {
         <div className="button__wrapper">
           <button
             className="button__reset"
-            onClick={() => dispatch(closeModal)}
+            onClick={() => dispatch(closeModal())}
           >
             Cancelar
           </button>
