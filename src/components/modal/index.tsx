@@ -1,5 +1,9 @@
 function Modal({ children }: React.PropsWithChildren) {
-  return <div className="modal__wrapper">{children}</div>;
+  return (
+    <div data-cy="modal" className="modal__wrapper">
+      {children}
+    </div>
+  );
 }
 
 export default Modal;

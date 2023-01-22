@@ -49,6 +49,7 @@ function Form({ validateState }: IPropsForm) {
           value={amount?.toString()}
           onChange={handleAmount}
           onBlur={validateState}
+          data-cy="amount"
         />
         {errors?.amount.length != 0 && (
           <span className="error">{errors?.amount[0].msg}</span>
@@ -65,6 +66,7 @@ function Form({ validateState }: IPropsForm) {
           value={installments?.toString()}
           onBlur={validateState}
           onChange={handleInstallments}
+          data-cy="installments"
         />
         {errors?.installments.length != 0 && (
           <span className="error">{errors?.installments[0].msg}</span>
@@ -79,6 +81,7 @@ function Form({ validateState }: IPropsForm) {
           value={mdr?.toString()}
           onBlur={validateState}
           onChange={handleMdr}
+          data-cy="mdr"
         />
         {errors?.mdr.length != 0 && (
           <span className="error">{errors?.mdr[0].msg}</span>
@@ -86,16 +89,25 @@ function Form({ validateState }: IPropsForm) {
       </div>
 
       <div className="button__wrapper">
-        <button className="calendar" onClick={() => dispatch(openModal())}>
+        <button
+          className="calendar"
+          data-cy="calendar"
+          onClick={() => dispatch(openModal())}
+        >
           <FcCalendar size={38} />
         </button>
         <button
+          data-cy="reset"
           className="button__reset"
           onClick={() => dispatch(resetState())}
         >
           Reset
         </button>
-        <button className="button__calculate" onClick={validateState}>
+        <button
+          className="button__calculate"
+          data-cy="calcular"
+          onClick={validateState}
+        >
           Calcular
         </button>
       </div>

@@ -26,10 +26,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "cypress:cli": "cypress run",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet"
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet",
+    "cypress:firefox": "cypress open --browser firefox --e2e"
   },
   "eslintConfig": {
     "extends": [
@@ -52,8 +53,10 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
+    "cypress": "^12.3.0",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.3"

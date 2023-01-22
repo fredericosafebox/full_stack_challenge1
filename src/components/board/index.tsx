@@ -14,16 +14,16 @@ function Board() {
         {days!.length === 0 && (
           <ul>
             <li>
-              Amanhã: <span>R$ {tomorrow}</span>
+              Amanhã: <span data-cy="tomorrow">R$ {tomorrow}</span>
             </li>
             <li>
-              Em 15 dias: <span>R$ {twoWeeks}</span>
+              Em 15 dias: <span data-cy="twoWeeks">R$ {twoWeeks}</span>
             </li>
             <li>
-              Em 30 dias: <span>R$ {oneMonth}</span>
+              Em 30 dias: <span data-cy="oneMonth">R$ {oneMonth}</span>
             </li>
             <li>
-              Em 90 dias: <span>R$ {threeMonths}</span>
+              Em 90 dias: <span data-cy="threeMonths">R$ {threeMonths}</span>
             </li>
           </ul>
         )}
