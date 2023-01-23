@@ -2,45 +2,66 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
-## Available Scripts
+## Tecnologias
 
-In the project directory, you can run:
+### React Js
+
+### TypeScript
+
+### Redux Toolkit
+
+### Axios
+
+### Yup
+
+### React-Icons
+
+### SASS
+
+### Cypress
+
+### Prettier
+
+### ESlint
+
+## Metodologias
+
+### GitFlow
+
+### BEM
+
+## Scripts disponíveis
+
+Nesse projeto é possível rodar os seguites scripts:
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O comando irá lançar a aplicação no endereço ('https://localhost:3000').
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `yarn cypress:open`
 
-### `yarn test`
+O comando irá abrir o Cypress.io para que seja escolhida a forma de tese e2e.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `yarn cypress:cli`
+
+O comando irá rodar os testes e2e direto na CLI.
+
+### `yarn cypress:firefox`
+
+Caso possua o Firefox, o comando irá abrir o navegador com os preparos para testes e2e.
+
+### `yarn lint`
+
+O comando irá ativar e rodar as configurações do Eslint em todos os arquivos TS e TSX na pasta source já no modo quiet, o que evitará quebra do uso da aplicação por conta de warnings.
+
+### `yarn format`
+
+O comando irá formatar o código conforme as regras do prettier. A ação ocorrerá em todos os arquivos TS ou TSX na pasta source.
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O comando irá buildar a aplicação para produção.
 
 ### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Danger

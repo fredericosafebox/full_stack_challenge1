@@ -33,7 +33,7 @@ function Board() {
               const value = days![0][key];
               return (
                 <li key={index}>
-                  Em {key} dias: <span>R$ {value},00</span>
+                  Em {key} dias: <span data-cy={key}>R$ {value},00</span>
                 </li>
               );
             })}
