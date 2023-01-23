@@ -1,34 +1,40 @@
 # Getting Started with Create React App
 
+Dev: Frederico Barros Costa
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+
+Esse projeto simula uma calculadora de antecipação de vendas realizadas no crédito. É possível realizar cálculos com ou sem especificação de dias, e o aplicativo conta com testes e2e para assegurar o padrão de qualidade dos resultados. O gerenciamento de estado foi feito com o Redux, e toda a base do projeto conta com ferramentas que visam qualidade de código, como ES lint e Prettier. A  aplicação foi componentizada, e toda a estrutura do projeto segue um padrão de fácil entendimento.
+
+Para  instalar, execute o comando `yarn install`.
 
 ## Tecnologias
 
-### React Js
+##### React Js
 
-### TypeScript
+##### TypeScript
 
-### Redux Toolkit
+##### Redux Toolkit
 
-### Axios
+##### Axios
 
-### Yup
+##### Yup
 
-### React-Icons
+##### React-Icons
 
-### SASS
+##### SASS
 
-### Cypress
+##### Cypress
 
-### Prettier
+##### Prettier
 
-### ESlint
+##### ESlint
 
 ## Metodologias
 
-### GitFlow
+#### GitFlow
 
-### BEM
+#### BEM
 
 ## Scripts disponíveis
 
