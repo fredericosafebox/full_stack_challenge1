@@ -4,9 +4,11 @@ Dev: Frederico Barros Costa
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
-Esse projeto simula uma calculadora de antecipação de vendas realizadas no crédito. É possível realizar cálculos com ou sem especificação de dias, e o aplicativo conta com testes e2e para assegurar o padrão de qualidade dos resultados. O gerenciamento de estado foi feito com o Redux, e toda a base do projeto conta com ferramentas que visam qualidade de código, como ES lint e Prettier. A  aplicação foi componentizada, e toda a estrutura do projeto segue um padrão de fácil entendimento.
+Esse projeto simula uma calculadora de antecipação de vendas realizadas no crédito. É possível realizar cálculos com ou sem especificação de dias, e o aplicativo conta com testes e2e para assegurar o padrão de qualidade dos resultados. O gerenciamento de estado foi feito com o Redux, e toda a base do projeto conta com ferramentas que visam qualidade de código, como ES lint e Prettier. A aplicação foi componentizada, e toda a estrutura do projeto segue um padrão de fácil entendimento.
 
-Para  instalar, execute o comando `yarn install`.
+Para evitar problemas na experiência do usuário por conta de possíveis problemas de conexão, o Axios foi configurado para um tempo de resposta máximo de 5000ms. Na ausência de resposta, toasts são renderizados para alertar o usuário sobre os possíveis problemas. O mesmo para erros internos, ou outros tipos que possam aparecer com a falha do fetch.
+
+Para instalar, execute o comando `yarn install`.
 
 ## Tecnologias
 
@@ -19,6 +21,8 @@ Para  instalar, execute o comando `yarn install`.
 ##### Axios
 
 ##### Yup
+
+##### React-Toastify
 
 ##### React-Icons
 

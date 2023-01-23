@@ -13,6 +13,7 @@ import {
 import schema from '../../schemas/requestSchema';
 import { api } from '../../services/api';
 import { ValidationError } from 'yup';
+import { toast } from 'react-toastify';
 
 function Calculadora() {
   const { isVisible } = useAppSelector((state) => state.modal);
@@ -30,7 +31,28 @@ function Calculadora() {
           installments,
           mdr,
         });
-        const res = await api.post('/', data).then((res) => res.data);
+        const res = await api
+          .post('/', data)
+          .then((res) => res.data)
+          .catch((err) => {
+            switch (err.code) {
+              case 'ECONNABORTED':
+                toast.error('Sua conexão está lenta. Tente mais tarde.');
+                break;
+              case 'ERR_BAD_REQUEST':
+                toast.error(
+                  'Não foi possível obter resposta. Erro de Timeout.'
+                );
+                break;
+              case 'ERR_BAD_RESPONSE':
+                toast.error(
+                  'Parece que temos um problema com o servidor. Por favor tente mais tarde.'
+                );
+                break;
+              default:
+                toast.error(err.message);
+            }
+          });
         dispatch(
           updateResult({
             tomorrow: res['1'],
